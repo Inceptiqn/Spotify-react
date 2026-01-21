@@ -21,6 +21,13 @@ import viewAlbum from './ui/View album.png'
 import viewArtist from './ui/View artist.png'
 import volume from './ui/Volume.png'
 
+// Album cover imports
+import liveLoveAsapCover from './albums/live_love_asap.jpg'
+import longLiveAsapCover from './albums/long_live_asap.png'
+import allaCover from './albums/alla.png'
+import testingCover from './albums/testing.png'
+import dontBeDumbCover from './albums/dont_be_dumb.png'
+
 // grouped export of raw UI assets
 export const UI = {
   about,
@@ -54,7 +61,7 @@ export const ALBUMS = [
     type: 'album',
     title: 'Live. Love. ASAP',
     owner: 'A$AP Rocky',
-    cover: about,
+    cover: liveLoveAsapCover,
     items: 15,
     color: '#7BD389',
   },
@@ -63,7 +70,7 @@ export const ALBUMS = [
     type: 'album',
     title: 'Long. Live. ASAP',
     owner: 'A$AP Rocky',
-    cover: about,
+    cover: longLiveAsapCover,
     items: 17,
     color: '#61D3D6',
   },
@@ -72,7 +79,7 @@ export const ALBUMS = [
     type: 'album',
     title: 'At. Long. Last. ASAP',
     owner: 'A$AP Rocky',
-    cover: about,
+    cover: allaCover,
     items: 18,
     color: '#D77BFF',
   },
@@ -81,7 +88,7 @@ export const ALBUMS = [
     type: 'album',
     title: "TESTING",
     owner: 'A$AP Rocky',
-    cover: about,
+    cover: testingCover,
     items: 15,
     color: '#7AA2FF',
   },
@@ -90,7 +97,7 @@ export const ALBUMS = [
     type: 'album',
     title: "Don't Be Dumb",
     owner: 'A$AP Rocky',
-    cover: about,
+    cover: dontBeDumbCover,
     items: 18,
     color: '#7AA2FF',
   },
