@@ -111,7 +111,7 @@ export const SONGS = [
   { id: 's4', title: 'Stole Ya Flow', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 4 },
   { id: 's5', title: 'Stay Here', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 5 },
   { id: 's6', title: 'Playa', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 6 },
-  { id: 's7', title: 'Trespass', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 7 },
+  { id: 's7', title: 'No Tresspassing', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 7 },
   { id: 's8', title: 'Stop Snitching', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 8 },
   { id: 's9', title: 'STFU', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 9 },
   { id: 's10', title: 'Punk Rocky', artist: 'A$AP Rocky', albumId: 'album-5', duration: 0, track: 10 },
