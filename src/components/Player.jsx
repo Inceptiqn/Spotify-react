@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 import { UI, SONGS, ALBUMS } from "../assets/assets";
 
 const Player = () => {
-  // Helper function to get album cover for a song
   const getSongAlbumCover = (songIndex) => {
     const song = SONGS[songIndex];
     if (!song) return null;
