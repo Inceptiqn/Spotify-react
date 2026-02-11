@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
-import { ALBUMS } from "../assets/assets";
+import { ALBUMS, SONGS, UI } from "../assets/assets";
 
 const DisplayAlbum = () => {
   const { id } = useParams();
   const albumData = ALBUMS.find((album) => album.id === id);
-  console.log(albumData);
+  const albumSongs = SONGS.filter((song) => song.albumId === id);
+  console.log(albumData, albumSongs);
+
+
+  if (!albumData) {
+    return (
+      <>
+        <NavBar />
+        <div className="mt-10 text-center">
+          <p className="text-white text-xl">Album not found</p>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <NavBar />
@@ -38,13 +52,32 @@ const DisplayAlbum = () => {
                 fill="currentColor"
               />
             </svg>
-            <b className="pl-3">{albumData.owner} </b> · 50 songs · 2026 · 59
+            <b className="pl-3">{albumData.owner} </b> · {albumSongs.length} songs · 2026 · 59
             min 49 sec
           </p>
         </div>
       </div>
+      <div className=" grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
+        <p>
+          <b className="mr-4">#</b>Title
+        </p>
+        <p>Album</p>
+        <p className="hidden sm:block">Date Added</p>
+        <img className="m-auto w-4" src={UI.goToRadio} alt="" />
+      </div>
+      <hr />
+      {albumSongs.map((item, index) => (
+        <div key={item.id} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer">
+          <p className="text-white">
+            <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
+            <span className="ml-5">{item.title}</span>
+          </p>
+          <p>{albumData.title}</p>
+          <p className="hidden sm:block">5 days ago</p>
+          <p className="text-center">{item.duration || "not found"}</p>
+        </div>
+      ))}
     </>
   );
 };
-//1:16:40
 export default DisplayAlbum;
