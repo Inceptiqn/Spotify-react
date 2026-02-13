@@ -1,5 +1,4 @@
 import React from "react";
-import { UI } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -9,18 +8,22 @@ const NavBar = () => {
     <>
       <div className="w-full flex justify-between items-center font-semibold">
         <div className="flex items-center gap-2">
-          <img
+          <div
             onClick={() => navigate(-1)}
-            className="w-8 bg-black p-2 rounded-2xl cursor-pointer"
-            src={UI.goToRadio}
-            alt=""
-          />
-          <img
+            className="w-10 h-10 bg-black p-2 rounded-full cursor-pointer flex items-center justify-center"
+          >
+            <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </div>
+          <div
             onClick={() => navigate(1)}
-            className="w-8 bg-black p-2 rounded-2xl cursor-pointer"
-            src={UI.goToRadio}
-            alt=""
-          />
+            className="w-10 h-10 bg-black p-2 rounded-full cursor-pointer flex items-center justify-center"
+          >
+            <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
+          </div>
         </div>
         <div className="flex items-center gap-4">
           <p className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block">

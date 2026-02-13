@@ -1,28 +1,34 @@
 import React from "react";
-import { UI } from "../assets/assets";
 
 const Sidebar = () => {
   return (
     <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
       <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
         <div className="flex items-center gap-3 pl-8 cursor-pointer">
-          <img className="w-6" src={UI.goToRadio} alt="" />
+          <svg className="w-8" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
           <p className="font-bold">Home</p>
         </div>
         <div className="flex items-center gap-3 pl-8 cursor-pointer">
-          <img className="w-6" src={UI.goToRadio} alt="" />
+          <svg className="w-8" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
           <p className="font-bold">Search</p>
         </div>
       </div>
       <div className="bg-[#121212] h-[85%] rounded">
         <div className="p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img className="w-8" src={UI.goToRadio} alt="" />
+            <svg className="w-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
+            </svg>
             <p className="font-semibold">Your Library</p>
           </div>
           <div className="flex items-center gap-3">
-            <img src={UI.goToRadio} alt="" />
-            <img src={UI.goToRadio} alt="" />
+            <svg className="w-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+            </svg>
           </div>
         </div>
         <div className="p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4">
