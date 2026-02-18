@@ -4,14 +4,12 @@ import { UI, SONGS, ALBUMS } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
-  const { seekBar, seekBg, playStatus, play, pause } =
+  const { track, seekBar, seekBg, playStatus, play, pause } =
     useContext(PlayerContext);
 
-  const getSongAlbumCover = (songIndex) => {
-    const song = SONGS[songIndex];
-    if (!song) return null;
+  const getSongAlbumCover = (track) => {
 
-    const album = ALBUMS.find((album) => album.id === song.albumId);
+    const album = ALBUMS.find((album) => album.id === track.albumId);
     return album ? album.cover : null;
   };
 
@@ -22,12 +20,12 @@ const Player = () => {
       <div className="hidden lg:flex items-center gap-4">
         <img
           className="w-12"
-          src={getSongAlbumCover(currentSongIndex)}
-          alt={SONGS[currentSongIndex]?.title || ""}
+          src={getSongAlbumCover(track)}
+          alt={track.title || ""}
         />
         <div>
-          <p>{SONGS[currentSongIndex]?.title}</p>
-          <p>{SONGS[currentSongIndex]?.artist}</p>
+          <p>{track.title}</p>
+          <p>{track.artist}</p>
         </div>
       </div>
       <div className="flex flex-col items-center gap-1 m-auto translate-x-13">
@@ -53,23 +51,28 @@ const Player = () => {
               <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7z" />
             </svg>
           </button>
-          <button className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
-            <svg
-              role="img"
-              aria-hidden="true"
-              viewBox="0 0 16 16"
-              className="w-4 h-4 fill-current"
-            >
-              <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z" />
-            </svg>
-            <svg
-              role="img"
-              aria-hidden="true"
-              viewBox="0 0 16 16"
-              className="w-4 h-4 fill-current"
-            >
-              <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7z" />
-            </svg>
+          <button 
+            onClick={playStatus ? pause : play}
+            className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+            {playStatus ? (
+              <svg
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                className="w-4 h-4 fill-current"
+              >
+                <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7z" />
+              </svg>
+            ) : (
+              <svg
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                className="w-4 h-4 fill-current"
+              >
+                <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z" />
+              </svg>
+            )}
           </button>
           <button className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:text-white">
             <svg
