@@ -1,32 +1,32 @@
-import about from './ui/About.png'
-import addToPlaylist from './ui/Add to playlist.png'
-import addToQueue from './ui/Add to queue.png'
-import connectToDevice from './ui/Connect to a device.png'
-import fullScreen from './ui/Full screen.png'
-import goToRadio from './ui/Go to radio.png'
-import hideSong from './ui/Hide song.png'
-import like from './ui/Like.png'
-import lyrics from './ui/Lyrics.png'
-import nextIcon from './ui/Next.png'
-import pause from './ui/Pause.png'
-import previous from './ui/Previous.png'
-import queueIcon from './ui/Queue.png'
-import repeatIcon from './ui/Repeat.png'
-import reportAbuse from './ui/Report abuse.png'
-import share from './ui/Share.png'
-import shuffle from './ui/Shuffle.png'
-import sleepTimer from './ui/Sleep timer.png'
-import songCredits from './ui/Song credits.png'
-import viewAlbum from './ui/View album.png'
-import viewArtist from './ui/View artist.png'
-import volume from './ui/Volume.png'
+import about from "./ui/About.png";
+import addToPlaylist from "./ui/Add to playlist.png";
+import addToQueue from "./ui/Add to queue.png";
+import connectToDevice from "./ui/Connect to a device.png";
+import fullScreen from "./ui/Full screen.png";
+import goToRadio from "./ui/Go to radio.png";
+import hideSong from "./ui/Hide song.png";
+import like from "./ui/Like.png";
+import lyrics from "./ui/Lyrics.png";
+import nextIcon from "./ui/Next.png";
+import pause from "./ui/Pause.png";
+import previous from "./ui/Previous.png";
+import queueIcon from "./ui/Queue.png";
+import repeatIcon from "./ui/Repeat.png";
+import reportAbuse from "./ui/Report abuse.png";
+import share from "./ui/Share.png";
+import shuffle from "./ui/Shuffle.png";
+import sleepTimer from "./ui/Sleep timer.png";
+import songCredits from "./ui/Song credits.png";
+import viewAlbum from "./ui/View album.png";
+import viewArtist from "./ui/View artist.png";
+import volume from "./ui/Volume.png";
 
 // Album cover imports
-import liveLoveAsapCover from './albums/live_love_asap.jpg'
-import longLiveAsapCover from './albums/long_live_asap.png'
-import allaCover from './albums/alla.png'
-import testingCover from './albums/testing.png'
-import dontBeDumbCover from './albums/dont_be_dumb.png'
+import liveLoveAsapCover from "./albums/live_love_asap.jpg";
+import longLiveAsapCover from "./albums/long_live_asap.png";
+import allaCover from "./albums/alla.png";
+import testingCover from "./albums/testing.png";
+import dontBeDumbCover from "./albums/dont_be_dumb.png";
 
 // grouped export of raw UI assets
 export const UI = {
@@ -52,75 +52,706 @@ export const UI = {
   viewAlbum,
   viewArtist,
   volume,
-}
+};
 
-// Simple album / playlist objects for the home screen
 export const ALBUMS = [
   {
-    id: '1',
-    type: 'album',
-    title: 'Live. Love. ASAP',
-    owner: 'A$AP Rocky',
+    id: "1",
+    type: "album",
+    title: "Live. Love. ASAP",
+    owner: "A$AP Rocky",
     cover: liveLoveAsapCover,
-    items: 15,
-    color: '#7BD389',
+    items: 16,
+    color: "#C9A36A", // gold / champagne tone
   },
   {
-    id: '2',
-    type: 'album',
-    title: 'Long. Live. ASAP',
-    owner: 'A$AP Rocky',
+    id: "2",
+    type: "album",
+    title: "Long. Live. ASAP",
+    owner: "A$AP Rocky",
     cover: longLiveAsapCover,
-    items: 17,
-    color: '#61D3D6',
+    items: 16,
+    color: "#0F0F0F", // deep black / dark luxury
   },
   {
-    id: '3',
-    type: 'album',
-    title: 'At. Long. Last. ASAP',
-    owner: 'A$AP Rocky',
+    id: "3",
+    type: "album",
+    title: "At. Long. Last. ASAP",
+    owner: "A$AP Rocky",
     cover: allaCover,
     items: 18,
-    color: '#D77BFF',
+    color: "#6F1D1B", // dark red / wine
   },
   {
-    id: '4',
-    type: 'album',
+    id: "4",
+    type: "album",
     title: "TESTING",
-    owner: 'A$AP Rocky',
+    owner: "A$AP Rocky",
     cover: testingCover,
     items: 15,
-    color: '#7AA2FF',
+    color: "#BFA37A", // vintage sepia / beige
   },
   {
-    id: '5',
-    type: 'album',
+    id: "5",
+    type: "album",
     title: "Don't Be Dumb",
-    owner: 'A$AP Rocky',
+    owner: "A$AP Rocky",
     cover: dontBeDumbCover,
-    items: 18,
-    color: '#7AA2FF',
+    items: 15,
+    color: "#1E1E1E", // dark graphite / minimal black
   },
-]
-
-// Song objects; each references an albumId from ALBUMS
-export const SONGS = [
-  { id: 's1', title: 'Order of Protection', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 1 },
-  { id: 's2', title: 'Helicopter', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 2 },
-  { id: 's3', title: 'Interrogation (Skit)', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 3 },
-  { id: 's4', title: 'Stole Ya Flow', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 4 },
-  { id: 's5', title: 'Stay Here', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 5 },
-  { id: 's6', title: 'Playa', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 6 },
-  { id: 's7', title: 'No Tresspassing', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 7 },
-  { id: 's8', title: 'Stop Snitching', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 8 },
-  { id: 's9', title: 'STFU', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 9 },
-  { id: 's10', title: 'Punk Rocky', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 10 },
-  { id: 's11', title: 'Air Force (Black Demarco)', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 11 },
-  { id: 's12', title: 'Whiskey (Release Me)', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 12 },
-  { id: 's13', title: 'Robbery', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 13 },
-  { id: 's14', title: 'Don’t Be Dumb / Trip Baby', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 14 },
-  { id: 's15', title: 'The End', artist: 'A$AP Rocky', albumId: '5', duration: 0, track: 15 },
 ];
 
+export const SONGS = [
+  // Live. Love. ASAP
+  {
+    id: "s1",
+    title: "Palace",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 1,
+  },
+  {
+    id: "s2",
+    title: "Peso",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 2,
+  },
+  {
+    id: "s3",
+    title: "Bass",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 3,
+  },
+  {
+    id: "s4",
+    title: "Wassup",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 4,
+  },
+  {
+    id: "s5",
+    title: "Brand New Guy",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 5,
+  },
+  {
+    id: "s6",
+    title: "Purple Swag: Chapter 2",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 6,
+  },
+  {
+    id: "s7",
+    title: "Get Lit",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 7,
+  },
+  {
+    id: "s8",
+    title: "Trilla",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 8,
+  },
+  {
+    id: "s9",
+    title: "Keep It G",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 9,
+  },
+  {
+    id: "s10",
+    title: "Houston Old Head",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 10,
+  },
+  {
+    id: "s11",
+    title: "Acid Drip",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 11,
+  },
+  {
+    id: "s12",
+    title: "Leaf",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 12,
+  },
+  {
+    id: "s13",
+    title: "Roll One Up",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 13,
+  },
+  {
+    id: "s14",
+    title: "Demons",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 14,
+  },
+  {
+    id: "s15",
+    title: "Out of This World",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 15,
+  },
+  {
+    id: "s16",
+    title: "Sandman",
+    artist: "A$AP Rocky",
+    albumId: "1",
+    duration: 0,
+    track: 16,
+  },
 
-export default { UI, ALBUMS, SONGS }
+  // Long. Live. ASAP
+  {
+    id: "s17",
+    title: "Long Live A$AP",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 1,
+  },
+  {
+    id: "s18",
+    title: "Goldie",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 2,
+  },
+  {
+    id: "s19",
+    title: "PMW (All I Really Need)",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 3,
+  },
+  {
+    id: "s20",
+    title: "LVL",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 4,
+  },
+  {
+    id: "s21",
+    title: "Hell",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 5,
+  },
+  {
+    id: "s22",
+    title: "Pain",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 6,
+  },
+  {
+    id: "s23",
+    title: "Fuckin’ Problems",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 7,
+  },
+  {
+    id: "s24",
+    title: "Wild for the Night",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 8,
+  },
+  {
+    id: "s25",
+    title: "1Train",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 9,
+  },
+  {
+    id: "s26",
+    title: "Fashion Killa",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 10,
+  },
+  {
+    id: "s27",
+    title: "Phoenix",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 11,
+  },
+  {
+    id: "s28",
+    title: "Suddenly",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 12,
+  },
+  {
+    id: "s29",
+    title: "Jodye",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 13,
+  },
+  {
+    id: "s30",
+    title: "Ghetto Symphony",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 14,
+  },
+  {
+    id: "s31",
+    title: "Angels",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 15,
+  },
+  {
+    id: "s32",
+    title: "I Come Apart",
+    artist: "A$AP Rocky",
+    albumId: "2",
+    duration: 0,
+    track: 16,
+  },
+
+  // At. Long. Last. ASAP
+  {
+    id: "s33",
+    title: "Holy Ghost",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 1,
+  },
+  {
+    id: "s34",
+    title: "Canal St.",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 2,
+  },
+  {
+    id: "s35",
+    title: "Fine Whine",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 3,
+  },
+  {
+    id: "s36",
+    title: "L$D",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 4,
+  },
+  {
+    id: "s37",
+    title: "Excuse Me",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 5,
+  },
+  {
+    id: "s38",
+    title: "JD",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 6,
+  },
+  {
+    id: "s39",
+    title: "Lord Pretty Flacko Jodye 2",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 7,
+  },
+  {
+    id: "s40",
+    title: "Electric Body",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 8,
+  },
+  {
+    id: "s41",
+    title: "Jukebox Joints",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 9,
+  },
+  {
+    id: "s42",
+    title: "Max B",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 10,
+  },
+  {
+    id: "s43",
+    title: "Pharsyde",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 11,
+  },
+  {
+    id: "s44",
+    title: "Wavybone",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 12,
+  },
+  {
+    id: "s45",
+    title: "West Side Highway",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 13,
+  },
+  {
+    id: "s46",
+    title: "Better Things",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 14,
+  },
+  {
+    id: "s47",
+    title: "M’$",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 15,
+  },
+  {
+    id: "s48",
+    title: "Dreams (Interlude)",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 16,
+  },
+  {
+    id: "s49",
+    title: "Everyday",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 17,
+  },
+  {
+    id: "s50",
+    title: "Back Home",
+    artist: "A$AP Rocky",
+    albumId: "3",
+    duration: 0,
+    track: 18,
+  },
+
+  // TESTING
+  {
+    id: "s51",
+    title: "Distorted Records",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 1,
+  },
+  {
+    id: "s52",
+    title: "ASAP Forever",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 2,
+  },
+  {
+    id: "s53",
+    title: "Tony Tone",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 3,
+  },
+  {
+    id: "s54",
+    title: "Fukk Sleep",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 4,
+  },
+  {
+    id: "s55",
+    title: "Praise the Lord (Da Shine)",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 5,
+  },
+  {
+    id: "s56",
+    title: "Calldrops",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 6,
+  },
+  {
+    id: "s57",
+    title: "Buck Shots",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 7,
+  },
+  {
+    id: "s58",
+    title: "Gunz N Butter",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 8,
+  },
+  {
+    id: "s59",
+    title: "Brotha Man",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 9,
+  },
+  {
+    id: "s60",
+    title: "OG Beeper",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 10,
+  },
+  {
+    id: "s61",
+    title: "Kids Turned Out Fine",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 11,
+  },
+  {
+    id: "s62",
+    title: "Hun43rd",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 12,
+  },
+  {
+    id: "s63",
+    title: "Changes",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 13,
+  },
+  {
+    id: "s64",
+    title: "Black Tux, White Collar",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 14,
+  },
+  {
+    id: "s65",
+    title: "Purity",
+    artist: "A$AP Rocky",
+    albumId: "4",
+    duration: 0,
+    track: 15,
+  },
+
+  // Don’t Be Dumb
+  {
+    id: "s66",
+    title: "Order of Protection",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 1,
+  },
+  {
+    id: "s67",
+    title: "Helicopter",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 2,
+  },
+  {
+    id: "s68",
+    title: "Interrogation (Skit)",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 3,
+  },
+  {
+    id: "s69",
+    title: "Stole Ya Flow",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 4,
+  },
+  {
+    id: "s70",
+    title: "Stay Here",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 5,
+  },
+  {
+    id: "s71",
+    title: "Playa",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 6,
+  },
+  {
+    id: "s72",
+    title: "No Trespassing",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 7,
+  },
+  {
+    id: "s73",
+    title: "Stop Snitching",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 8,
+  },
+  {
+    id: "s74",
+    title: "STFU",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 9,
+  },
+  {
+    id: "s75",
+    title: "Punk Rocky",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 10,
+  },
+  {
+    id: "s76",
+    title: "Air Force (Black DeMarco)",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 11,
+  },
+  {
+    id: "s77",
+    title: "Whiskey (Release Me)",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 12,
+  },
+  {
+    id: "s78",
+    title: "Robbery",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 13,
+  },
+  {
+    id: "s79",
+    title: "Don’t Be Dumb / Trip Baby",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 14,
+  },
+  {
+    id: "s80",
+    title: "The End",
+    artist: "A$AP Rocky",
+    albumId: "5",
+    duration: 0,
+    track: 15,
+  },
+];
+
+export default { UI, ALBUMS, SONGS };
