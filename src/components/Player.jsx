@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import Sidebar from "./Sidebar";
-import { SONGS, ALBUMS } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
@@ -14,25 +12,26 @@ const Player = () => {
     time,
     previous,
     next,
+    albums,
   } = useContext(PlayerContext);
 
   const getSongAlbumCover = (track) => {
-    if (!track || !track.albumId) return null;
-    const album = ALBUMS.find((album) => album.id === track.albumId);
+    if (!track || !track.albumId || !Array.isArray(albums)) return null;
+    const album = albums.find((album) => album.id === track.albumId);
     return album ? album.cover : null;
   };
+
+  const currentTitle = track?.title || "No track selected";
+  const currentArtist = track?.artist || "";
+  const currentCover = getSongAlbumCover(track);
 
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
       <div className="hidden lg:flex items-center gap-4">
-        <img
-          className="w-12"
-          src={getSongAlbumCover(track)}
-          alt={track.title || ""}
-        />
+        <img className="w-12" src={currentCover || ""} alt={currentTitle} />
         <div>
-          <p>{track?.title || "No track selected"}</p>
-          <p>{track?.artist || ""}</p>
+          <p>{currentTitle}</p>
+          <p>{currentArtist}</p>
         </div>
       </div>
       <div className="flex flex-col items-center gap-1 m-auto translate-x-13">

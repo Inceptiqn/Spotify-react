@@ -39,5 +39,4 @@ const Sidebar = () => {
     </div>
   );
 };
-//TIME 22:40
 export default Sidebar;

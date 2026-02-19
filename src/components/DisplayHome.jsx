@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "./NavBar";
-import { SONGS, ALBUMS } from "../assets/assets";
 import AlbumItem from "./AlbumItem";
 import SongItem from "./SongItem";
+import { PlayerContext } from "../context/PlayerContext";
 
 const DisplayHome = () => {
+  const { albums, songs, isLoading, error } = useContext(PlayerContext);
+
+  if (isLoading) {
+    return (
+      <>
+        <NavBar />
+        <div className="mt-10 text-center">
+          <p className="text-white text-xl">Loading music...</p>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <NavBar />
+        <div className="mt-10 text-center">
+          <p className="text-red-500 text-xl">{error}</p>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <NavBar />
       <div className="mb-4">
         <h1 className="my-5 font-bold text-2xl">Featured Charts</h1>
         <div className="flex overflow-auto">
-          {ALBUMS.map((item, index) => (
+          {albums.map((item) => (
             <AlbumItem
-              key={index}
+              key={item.id}
               title={item.title}
               artist={item.owner}
               id={item.id}
@@ -25,13 +49,13 @@ const DisplayHome = () => {
       <div className="mb-4">
         <h1 className="my-5 font-bold text-2xl">Today's biggest hits</h1>
         <div className="flex overflow-auto">
-          {SONGS.map((item, index) => {
-            const album = ALBUMS.find((album) => album.id === item.albumId);
+          {songs.map((item) => {
+            const album = albums.find((album) => album.id === item.albumId);
             const cover = album ? album.cover : null;
 
             return (
               <SongItem
-                key={index}
+                key={item.id}
                 title={item.title}
                 artist={item.artist}
                 id={item.id}

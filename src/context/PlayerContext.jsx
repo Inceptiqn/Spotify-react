@@ -1,5 +1,5 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { SONGS } from "../assets/assets";
+import { fetchAlbums, fetchSongs } from "../services/pocketbase";
 
 export const PlayerContext = createContext();
 
@@ -8,8 +8,12 @@ const PlayerContextProvider = (props) => {
   const seekBg = useRef();
   const seekBar = useRef();
 
-  const [track, setTrack] = useState(SONGS[19]);
+  const [songs, setSongs] = useState([]);
+  const [albums, setAlbums] = useState([]);
+  const [track, setTrack] = useState(null);
   const [playStatus, setPlayStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [time, setTime] = useState({
     currentTime: {
       second: 0,
@@ -23,9 +27,8 @@ const PlayerContextProvider = (props) => {
 
   const play = () => {
     if (audioRef.current && track?.file) {
-      // Ensure absolute path for audio src
-      if (!audioRef.current.src.includes(track.file)) {
-        audioRef.current.src = "/" + track.file;
+      if (audioRef.current.src !== track.file) {
+        audioRef.current.src = track.file;
         audioRef.current.load();
       }
       audioRef.current.play().catch((error) => {
@@ -43,14 +46,14 @@ const PlayerContextProvider = (props) => {
   };
 
   const playWithId = (id) => {
-    const song = SONGS.find((song) => song.id === id);
+    const song = songs.find((song) => song.id === id);
     if (song) {
       setTrack(song);
       if (song.file && song.file !== "") {
         setTimeout(() => {
           if (audioRef.current) {
-            audioRef.current.src = "/" + song.file; // Use absolute path
-            audioRef.current.load(); // Force reload with new source
+            audioRef.current.src = song.file;
+            audioRef.current.load();
             audioRef.current.play().catch((error) => {
               console.error("Error playing audio:", error);
             });
@@ -71,14 +74,18 @@ const PlayerContextProvider = (props) => {
         setPlayStatus(false);
       }
 
-      const currentIndex = SONGS.findIndex((song) => song.id === track.id);
+      const albumSongs = songs
+        .filter((song) => song.albumId === track.albumId)
+        .sort((a, b) => (a.track || 0) - (b.track || 0));
+
+      const currentIndex = albumSongs.findIndex((song) => song.id === track.id);
       if (currentIndex > 0) {
-        const prevSong = SONGS[currentIndex - 1];
+        const prevSong = albumSongs[currentIndex - 1];
         setTrack(prevSong);
         if (prevSong.file && prevSong.file !== "") {
           setTimeout(() => {
             if (audioRef.current) {
-              audioRef.current.src = "/" + prevSong.file;
+              audioRef.current.src = prevSong.file;
               audioRef.current.load();
               audioRef.current.play().catch((error) => {
                 console.error("Error playing audio:", error);
@@ -100,14 +107,18 @@ const PlayerContextProvider = (props) => {
         setPlayStatus(false);
       }
 
-      const currentIndex = SONGS.findIndex((song) => song.id === track.id);
-      if (currentIndex < SONGS.length - 1) {
-        const nextSong = SONGS[currentIndex + 1];
+      const albumSongs = songs
+        .filter((song) => song.albumId === track.albumId)
+        .sort((a, b) => (a.track || 0) - (b.track || 0));
+
+      const currentIndex = albumSongs.findIndex((song) => song.id === track.id);
+      if (currentIndex > -1 && currentIndex < albumSongs.length - 1) {
+        const nextSong = albumSongs[currentIndex + 1];
         setTrack(nextSong);
         if (nextSong.file && nextSong.file !== "") {
           setTimeout(() => {
             if (audioRef.current) {
-              audioRef.current.src = "/" + nextSong.file;
+              audioRef.current.src = nextSong.file;
               audioRef.current.load();
               audioRef.current.play().catch((error) => {
                 console.error("Error playing audio:", error);
@@ -123,32 +134,68 @@ const PlayerContextProvider = (props) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      audioRef.current.ontimeupdate = () => {
-        if (seekBar.current && audioRef.current.duration) {
-          const progress = Math.floor(
-            (audioRef.current.currentTime / audioRef.current.duration) * 100,
-          );
-          seekBar.current.style.width = progress + "%";
-        }
-        setTime({
-          currentTime: {
-            second: Math.floor(audioRef.current.currentTime % 60),
-            minute: Math.floor(audioRef.current.currentTime / 60),
-          },
-          totalTime: {
-            second: Math.floor(audioRef.current.duration % 60),
-            minute: Math.floor(audioRef.current.duration / 60),
-          },
-        });
-      };
-    }, 1000);
-  }, [audioRef]);
+    const loadData = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
 
-  // Reload audio when track changes
+        const [loadedAlbums, loadedSongs] = await Promise.all([
+          fetchAlbums(),
+          fetchSongs(),
+        ]);
+
+        setAlbums(loadedAlbums);
+        setSongs(loadedSongs);
+
+        if (loadedSongs.length > 0) {
+          setTrack(loadedSongs[0]);
+        }
+      } catch (err) {
+        console.error("Error loading music data:", err);
+        setError(err.message || "Failed to load music data");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    const audio = audioRef.current;
+
+    const handleTimeUpdate = () => {
+      if (seekBar.current && audio.duration) {
+        const progress = Math.floor((audio.currentTime / audio.duration) * 100);
+        seekBar.current.style.width = progress + "%";
+      }
+      setTime({
+        currentTime: {
+          second: Math.floor(audio.currentTime % 60) || 0,
+          minute: Math.floor(audio.currentTime / 60) || 0,
+        },
+        totalTime: {
+          second: Math.floor(audio.duration % 60) || 0,
+          minute: Math.floor(audio.duration / 60) || 0,
+        },
+      });
+    };
+
+    audio.ontimeupdate = handleTimeUpdate;
+
+    return () => {
+      audio.ontimeupdate = null;
+    };
+  }, []);
+
   useEffect(() => {
     if (audioRef.current && track?.file && track.file !== "") {
-      audioRef.current.load();
+      if (audioRef.current.src !== track.file) {
+        audioRef.current.src = track.file;
+        audioRef.current.load();
+      }
     }
   }, [track]);
 
@@ -156,6 +203,8 @@ const PlayerContextProvider = (props) => {
     audioRef,
     seekBar,
     seekBg,
+    songs,
+    albums,
     track,
     setTrack,
     playStatus,
@@ -167,6 +216,8 @@ const PlayerContextProvider = (props) => {
     playWithId,
     previous,
     next,
+    isLoading,
+    error,
   };
 
   return (

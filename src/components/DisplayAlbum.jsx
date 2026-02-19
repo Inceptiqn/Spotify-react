@@ -1,15 +1,37 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
-import { ALBUMS, SONGS } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const DisplayAlbum = () => {
   const { id } = useParams();
-  const { playWithId } = useContext(PlayerContext);
-  const albumData = ALBUMS.find((album) => album.id === id);
-  const albumSongs = SONGS.filter((song) => song.albumId === id);
-  console.log(albumData, albumSongs);
+  const { playWithId, albums, songs, isLoading, error } =
+    useContext(PlayerContext);
+
+  const albumData = albums.find((album) => album.id === id);
+  const albumSongs = songs.filter((song) => song.albumId === id);
+
+  if (isLoading) {
+    return (
+      <>
+        <NavBar />
+        <div className="mt-10 text-center">
+          <p className="text-white text-xl">Loading album...</p>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <NavBar />
+        <div className="mt-10 text-center">
+          <p className="text-red-500 text-xl">{error}</p>
+        </div>
+      </>
+    );
+  }
 
 
   if (!albumData) {
