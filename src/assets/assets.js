@@ -1,26 +1,3 @@
-import about from "./ui/About.png";
-import addToPlaylist from "./ui/Add to playlist.png";
-import addToQueue from "./ui/Add to queue.png";
-import connectToDevice from "./ui/Connect to a device.png";
-import fullScreen from "./ui/Full screen.png";
-import goToRadio from "./ui/Go to radio.png";
-import hideSong from "./ui/Hide song.png";
-import like from "./ui/Like.png";
-import lyrics from "./ui/Lyrics.png";
-import nextIcon from "./ui/Next.png";
-import pause from "./ui/Pause.png";
-import previous from "./ui/Previous.png";
-import queueIcon from "./ui/Queue.png";
-import repeatIcon from "./ui/Repeat.png";
-import reportAbuse from "./ui/Report abuse.png";
-import share from "./ui/Share.png";
-import shuffle from "./ui/Shuffle.png";
-import sleepTimer from "./ui/Sleep timer.png";
-import songCredits from "./ui/Song credits.png";
-import viewAlbum from "./ui/View album.png";
-import viewArtist from "./ui/View artist.png";
-import volume from "./ui/Volume.png";
-
 // Album cover imports
 import liveLoveAsapCover from "./albums/live_love_asap.jpg";
 import longLiveAsapCover from "./albums/long_live_asap.png";
@@ -29,30 +6,6 @@ import testingCover from "./albums/testing.png";
 import dontBeDumbCover from "./albums/dont_be_dumb.png";
 
 // grouped export of raw UI assets
-export const UI = {
-  about,
-  addToPlaylist,
-  addToQueue,
-  connectToDevice,
-  fullScreen,
-  goToRadio,
-  hideSong,
-  like,
-  lyrics,
-  nextIcon,
-  pause,
-  previous,
-  queueIcon,
-  repeatIcon,
-  reportAbuse,
-  share,
-  shuffle,
-  sleepTimer,
-  songCredits,
-  viewAlbum,
-  viewArtist,
-  volume,
-};
 
 export const ALBUMS = [
   {
@@ -833,4 +786,4 @@ export const SONGS = [
   },
 ];
 
-export default { UI, ALBUMS, SONGS };
+export default { ALBUMS, SONGS };

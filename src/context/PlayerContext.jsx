@@ -23,6 +23,11 @@ const PlayerContextProvider = (props) => {
 
   const play = () => {
     if (audioRef.current && track?.file) {
+      // Ensure absolute path for audio src
+      if (!audioRef.current.src.includes(track.file)) {
+        audioRef.current.src = "/" + track.file;
+        audioRef.current.load();
+      }
       audioRef.current.play().catch((error) => {
         console.error("Error playing audio:", error);
       });
@@ -38,12 +43,13 @@ const PlayerContextProvider = (props) => {
   };
 
   const playWithId = (id) => {
-    const song = SONGS.find(song => song.id === id);
+    const song = SONGS.find((song) => song.id === id);
     if (song) {
       setTrack(song);
       if (song.file && song.file !== "") {
         setTimeout(() => {
           if (audioRef.current) {
+            audioRef.current.src = "/" + song.file; // Use absolute path
             audioRef.current.load(); // Force reload with new source
             audioRef.current.play().catch((error) => {
               console.error("Error playing audio:", error);
@@ -56,14 +62,73 @@ const PlayerContextProvider = (props) => {
         setPlayStatus(false);
       }
     }
-  }
+  };
 
+  const previous = () => {
+    if (track) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        setPlayStatus(false);
+      }
+
+      const currentIndex = SONGS.findIndex((song) => song.id === track.id);
+      if (currentIndex > 0) {
+        const prevSong = SONGS[currentIndex - 1];
+        setTrack(prevSong);
+        if (prevSong.file && prevSong.file !== "") {
+          setTimeout(() => {
+            if (audioRef.current) {
+              audioRef.current.src = "/" + prevSong.file;
+              audioRef.current.load();
+              audioRef.current.play().catch((error) => {
+                console.error("Error playing audio:", error);
+              });
+              setPlayStatus(true);
+            }
+          }, 100);
+        } else {
+          setPlayStatus(false);
+        }
+      }
+    }
+  };
+
+  const next = () => {
+    if (track) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        setPlayStatus(false);
+      }
+
+      const currentIndex = SONGS.findIndex((song) => song.id === track.id);
+      if (currentIndex < SONGS.length - 1) {
+        const nextSong = SONGS[currentIndex + 1];
+        setTrack(nextSong);
+        if (nextSong.file && nextSong.file !== "") {
+          setTimeout(() => {
+            if (audioRef.current) {
+              audioRef.current.src = "/" + nextSong.file;
+              audioRef.current.load();
+              audioRef.current.play().catch((error) => {
+                console.error("Error playing audio:", error);
+              });
+              setPlayStatus(true);
+            }
+          }, 100);
+        } else {
+          setPlayStatus(false);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
       audioRef.current.ontimeupdate = () => {
         if (seekBar.current && audioRef.current.duration) {
-          const progress = Math.floor(audioRef.current.currentTime / audioRef.current.duration * 100);
+          const progress = Math.floor(
+            (audioRef.current.currentTime / audioRef.current.duration) * 100,
+          );
           seekBar.current.style.width = progress + "%";
         }
         setTime({
@@ -100,6 +165,8 @@ const PlayerContextProvider = (props) => {
     play,
     pause,
     playWithId,
+    previous,
+    next,
   };
 
   return (

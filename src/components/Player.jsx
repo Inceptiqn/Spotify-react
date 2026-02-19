@@ -1,18 +1,27 @@
 import React, { useContext } from "react";
 import Sidebar from "./Sidebar";
-import { UI, SONGS, ALBUMS } from "../assets/assets";
+import { SONGS, ALBUMS } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
-  const { track, seekBar, seekBg, playStatus, play, pause, time} =
-    useContext(PlayerContext);
+  const {
+    track,
+    seekBar,
+    seekBg,
+    playStatus,
+    play,
+    pause,
+    time,
+    previous,
+    next,
+  } = useContext(PlayerContext);
 
   const getSongAlbumCover = (track) => {
     if (!track || !track.albumId) return null;
     const album = ALBUMS.find((album) => album.id === track.albumId);
     return album ? album.cover : null;
   };
-  
+
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
       <div className="hidden lg:flex items-center gap-4">
@@ -39,7 +48,10 @@ const Player = () => {
               <path d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z" />
             </svg>
           </button>
-          <button className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:text-white">
+          <button
+            onClick={previous}
+            className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:text-white"
+          >
             <svg
               role="img"
               aria-hidden="true"
@@ -49,9 +61,10 @@ const Player = () => {
               <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7z" />
             </svg>
           </button>
-          <button 
+          <button
             onClick={playStatus ? pause : play}
-            className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+            className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+          >
             {playStatus ? (
               <svg
                 role="img"
@@ -72,7 +85,10 @@ const Player = () => {
               </svg>
             )}
           </button>
-          <button className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:text-white">
+          <button
+            onClick={next}
+            className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:text-white"
+          >
             <svg
               role="img"
               aria-hidden="true"
@@ -94,7 +110,9 @@ const Player = () => {
           </button>
         </div>
         <div className="flex  items-center gap-3">
-          <p className="text-xs text-gray-400">{time.currentTime.minute}:{time.currentTime.second}</p>
+          <p className="text-xs text-gray-400">
+            {time.currentTime.minute}:{time.currentTime.second}
+          </p>
           <div
             ref={seekBg}
             className="w-[70vw] max-w-150 bg-gray-500 rounded-full cursor-pointer"
@@ -104,7 +122,9 @@ const Player = () => {
               className="h-1 border-none w-72 bg-white hover:bg-[#1db954] rounded-full"
             />
           </div>
-          <p className="text-xs text-gray-400">{time.totalTime.minute}:{time.totalTime.second}</p>
+          <p className="text-xs text-gray-400">
+            {time.totalTime.minute}:{time.totalTime.second}
+          </p>
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-4 opacity-75">
