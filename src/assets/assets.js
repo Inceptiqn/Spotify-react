@@ -111,6 +111,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 1,
+    file: "",
   },
   {
     id: "s2",
@@ -119,6 +120,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 2,
+    file: "",
   },
   {
     id: "s3",
@@ -127,6 +129,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 3,
+    file: "",
   },
   {
     id: "s4",
@@ -135,6 +138,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 4,
+    file: "",
   },
   {
     id: "s5",
@@ -143,6 +147,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 5,
+    file: "",
   },
   {
     id: "s6",
@@ -151,6 +156,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 6,
+    file: "",
   },
   {
     id: "s7",
@@ -159,6 +165,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 7,
+    file: "",
   },
   {
     id: "s8",
@@ -167,6 +174,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 8,
+    file: "",
   },
   {
     id: "s9",
@@ -175,6 +183,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 9,
+    file: "",
   },
   {
     id: "s10",
@@ -183,6 +192,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 10,
+    file: "",
   },
   {
     id: "s11",
@@ -191,6 +201,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 11,
+    file: "",
   },
   {
     id: "s12",
@@ -199,6 +210,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 12,
+    file: "",
   },
   {
     id: "s13",
@@ -207,6 +219,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 13,
+    file: "",
   },
   {
     id: "s14",
@@ -215,6 +228,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 14,
+    file: "",
   },
   {
     id: "s15",
@@ -223,6 +237,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 15,
+    file: "",
   },
   {
     id: "s16",
@@ -231,6 +246,7 @@ export const SONGS = [
     albumId: "1",
     duration: 0,
     track: 16,
+    file: "",
   },
 
   // Long. Live. ASAP
@@ -241,6 +257,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 1,
+    file: "",
   },
   {
     id: "s18",
@@ -249,6 +266,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 2,
+    file: "",
   },
   {
     id: "s19",
@@ -257,6 +275,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 3,
+    file: "",
   },
   {
     id: "s20",
@@ -265,6 +284,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 4,
+    file: "LVL.mp3",
   },
   {
     id: "s21",
@@ -273,6 +293,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 5,
+    file: "",
   },
   {
     id: "s22",
@@ -281,6 +302,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 6,
+    file: "",
   },
   {
     id: "s23",
@@ -289,6 +311,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 7,
+    file: "",
   },
   {
     id: "s24",
@@ -297,6 +320,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 8,
+    file: "",
   },
   {
     id: "s25",
@@ -305,6 +329,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 9,
+    file: "",
   },
   {
     id: "s26",
@@ -313,6 +338,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 10,
+    file: "",
   },
   {
     id: "s27",
@@ -321,6 +347,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 11,
+    file: "",
   },
   {
     id: "s28",
@@ -329,6 +356,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 12,
+    file: "",
   },
   {
     id: "s29",
@@ -337,6 +365,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 13,
+    file: "",
   },
   {
     id: "s30",
@@ -345,6 +374,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 14,
+    file: "",
   },
   {
     id: "s31",
@@ -353,6 +383,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 15,
+    file: "",
   },
   {
     id: "s32",
@@ -361,6 +392,7 @@ export const SONGS = [
     albumId: "2",
     duration: 0,
     track: 16,
+    file: "",
   },
 
   // At. Long. Last. ASAP
@@ -371,6 +403,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 1,
+    file: "",
   },
   {
     id: "s34",
@@ -379,6 +412,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 2,
+    file: "",
   },
   {
     id: "s35",
@@ -387,6 +421,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 3,
+    file: "",
   },
   {
     id: "s36",
@@ -395,6 +430,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 4,
+    file: "",
   },
   {
     id: "s37",
@@ -403,6 +439,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 5,
+    file: "",
   },
   {
     id: "s38",
@@ -411,6 +448,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 6,
+    file: "",
   },
   {
     id: "s39",
@@ -419,6 +457,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 7,
+    file: "",
   },
   {
     id: "s40",
@@ -427,6 +466,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 8,
+    file: "",
   },
   {
     id: "s41",
@@ -435,6 +475,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 9,
+    file: "",
   },
   {
     id: "s42",
@@ -443,6 +484,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 10,
+    file: "",
   },
   {
     id: "s43",
@@ -451,6 +493,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 11,
+    file: "",
   },
   {
     id: "s44",
@@ -459,6 +502,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 12,
+    file: "",
   },
   {
     id: "s45",
@@ -467,6 +511,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 13,
+    file: "",
   },
   {
     id: "s46",
@@ -475,6 +520,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 14,
+    file: "",
   },
   {
     id: "s47",
@@ -483,6 +529,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 15,
+    file: "",
   },
   {
     id: "s48",
@@ -491,6 +538,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 16,
+    file: "",
   },
   {
     id: "s49",
@@ -499,6 +547,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 17,
+    file: "",
   },
   {
     id: "s50",
@@ -507,6 +556,7 @@ export const SONGS = [
     albumId: "3",
     duration: 0,
     track: 18,
+    file: "",
   },
 
   // TESTING
@@ -517,6 +567,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 1,
+    file: "",
   },
   {
     id: "s52",
@@ -525,6 +576,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 2,
+    file: "",
   },
   {
     id: "s53",
@@ -533,6 +585,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 3,
+    file: "",
   },
   {
     id: "s54",
@@ -541,6 +594,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 4,
+    file: "",
   },
   {
     id: "s55",
@@ -549,6 +603,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 5,
+    file: "",
   },
   {
     id: "s56",
@@ -557,6 +612,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 6,
+    file: "",
   },
   {
     id: "s57",
@@ -565,6 +621,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 7,
+    file: "",
   },
   {
     id: "s58",
@@ -573,6 +630,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 8,
+    file: "",
   },
   {
     id: "s59",
@@ -581,6 +639,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 9,
+    file: "",
   },
   {
     id: "s60",
@@ -589,6 +648,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 10,
+    file: "",
   },
   {
     id: "s61",
@@ -605,6 +665,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 12,
+    file: "",
   },
   {
     id: "s63",
@@ -613,6 +674,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 13,
+    file: "",
   },
   {
     id: "s64",
@@ -621,6 +683,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 14,
+    file: "",
   },
   {
     id: "s65",
@@ -629,6 +692,7 @@ export const SONGS = [
     albumId: "4",
     duration: 0,
     track: 15,
+    file: "",
   },
 
   // Don’t Be Dumb
@@ -639,6 +703,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 1,
+    file: "",
   },
   {
     id: "s67",
@@ -647,6 +712,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 2,
+    file: "",
   },
   {
     id: "s68",
@@ -655,6 +721,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 3,
+    file: "",
   },
   {
     id: "s69",
@@ -663,6 +730,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 4,
+    file: "",
   },
   {
     id: "s70",
@@ -671,6 +739,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 5,
+    file: "",
   },
   {
     id: "s71",
@@ -679,6 +748,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 6,
+    file: "",
   },
   {
     id: "s72",
@@ -687,6 +757,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 7,
+    file: "",
   },
   {
     id: "s73",
@@ -695,6 +766,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 8,
+    file: "",
   },
   {
     id: "s74",
@@ -703,6 +775,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 9,
+    file: "",
   },
   {
     id: "s75",
@@ -711,6 +784,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 10,
+    file: "",
   },
   {
     id: "s76",
@@ -719,6 +793,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 11,
+    file: "",
   },
   {
     id: "s77",
@@ -727,6 +802,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 12,
+    file: "",
   },
   {
     id: "s78",
@@ -735,6 +811,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 13,
+    file: "",
   },
   {
     id: "s79",
@@ -743,6 +820,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 14,
+    file: "",
   },
   {
     id: "s80",
@@ -751,6 +829,7 @@ export const SONGS = [
     albumId: "5",
     duration: 0,
     track: 15,
+    file: "",
   },
 ];
 

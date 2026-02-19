@@ -4,17 +4,15 @@ import { UI, SONGS, ALBUMS } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
-  const { track, seekBar, seekBg, playStatus, play, pause } =
+  const { track, seekBar, seekBg, playStatus, play, pause, time} =
     useContext(PlayerContext);
 
   const getSongAlbumCover = (track) => {
-
+    if (!track || !track.albumId) return null;
     const album = ALBUMS.find((album) => album.id === track.albumId);
     return album ? album.cover : null;
   };
-
-  const currentSongIndex = 14;
-
+  
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
       <div className="hidden lg:flex items-center gap-4">
@@ -24,8 +22,8 @@ const Player = () => {
           alt={track.title || ""}
         />
         <div>
-          <p>{track.title}</p>
-          <p>{track.artist}</p>
+          <p>{track?.title || "No track selected"}</p>
+          <p>{track?.artist || ""}</p>
         </div>
       </div>
       <div className="flex flex-col items-center gap-1 m-auto translate-x-13">
@@ -96,7 +94,7 @@ const Player = () => {
           </button>
         </div>
         <div className="flex  items-center gap-3">
-          <p className="text-xs text-gray-400">1:06</p>
+          <p className="text-xs text-gray-400">{time.currentTime.minute}:{time.currentTime.second}</p>
           <div
             ref={seekBg}
             className="w-[70vw] max-w-150 bg-gray-500 rounded-full cursor-pointer"
@@ -106,7 +104,7 @@ const Player = () => {
               className="h-1 border-none w-72 bg-white hover:bg-[#1db954] rounded-full"
             />
           </div>
-          <p className="text-xs text-gray-400">3:20</p>
+          <p className="text-xs text-gray-400">{time.totalTime.minute}:{time.totalTime.second}</p>
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-4 opacity-75">

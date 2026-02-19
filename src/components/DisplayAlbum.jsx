@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
 import { ALBUMS, SONGS, UI } from "../assets/assets";
+import { PlayerContext } from "../context/PlayerContext";
 
 const DisplayAlbum = () => {
   const { id } = useParams();
+  const { playWithId } = useContext(PlayerContext);
   const albumData = ALBUMS.find((album) => album.id === id);
   const albumSongs = SONGS.filter((song) => song.albumId === id);
   console.log(albumData, albumSongs);
@@ -68,7 +70,7 @@ const DisplayAlbum = () => {
       </div>
       <hr />
       {albumSongs.map((item, index) => (
-        <div key={item.id} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer">
+        <div onClick={() => playWithId(item.id)} key={item.id} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer">
           <p className="text-white">
             <b className="mr-4 text-[#a7a7a7] w-4 text-right inline-block">{index + 1}</b>
             <span className="ml-1">{item.title}</span>
