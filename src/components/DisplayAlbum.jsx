@@ -66,7 +66,6 @@ const DisplayAlbum = () => {
         </p>
         <p>Album</p>
         <p className="hidden sm:block">Date Added</p>
-        <img className="m-auto w-4" src={UI.goToRadio} alt="" />
       </div>
       <hr />
       {albumSongs.map((item, index) => (
