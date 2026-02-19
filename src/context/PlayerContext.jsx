@@ -23,15 +23,10 @@ const PlayerContextProvider = (props) => {
 
   const play = () => {
     if (audioRef.current && track?.file) {
-      console.log("Attempting to play:", track.title, "file:", track.file);
       audioRef.current.play().catch((error) => {
         console.error("Error playing audio:", error);
-        console.log("Current audio src:", audioRef.current.src);
-        console.log("Audio readyState:", audioRef.current.readyState);
       });
       setPlayStatus(true);
-    } else {
-      console.log("Cannot play - no audio file or ref:", track?.title);
     }
   };
 
@@ -44,45 +39,16 @@ const PlayerContextProvider = (props) => {
 
   const playWithId = (id) => {
     const song = SONGS.find(song => song.id === id);
-    console.log("playWithId called with:", id, "found song:", song);
     if (song) {
       setTrack(song);
       if (song.file && song.file !== "") {
-        console.log("Song has file:", song.file);
         setTimeout(() => {
           if (audioRef.current) {
-            const playAudio = () => {
-              console.log("Audio ready to play, src:", audioRef.current.src);
-              audioRef.current.play().catch((error) => {
-                console.error("Error playing audio:", error);
-                console.log("Audio src when error:", audioRef.current.src);
-              });
-              setPlayStatus(true);
-              audioRef.current.removeEventListener('canplay', playAudio);
-              audioRef.current.removeEventListener('error', audioError);
-            };
-            
-            const audioError = (e) => {
-              console.error("Audio loading error:", e);
-              console.log("Error details:", audioRef.current.error);
-              console.log("Attempted src:", audioRef.current.src);
-              audioRef.current.removeEventListener('canplay', playAudio);
-              audioRef.current.removeEventListener('error', audioError);
-            };
-            
-            // Set the src directly and then load
-            audioRef.current.src = "/" + song.file; // Add leading slash for absolute path
-            audioRef.current.addEventListener('canplay', playAudio);
-            audioRef.current.addEventListener('error', audioError);
-            audioRef.current.load();
-            console.log("Audio load called, src set to:", "/" + song.file);
-            
-            // Add timeout fallback
-            setTimeout(() => {
-              if (audioRef.current.readyState === 0) {
-                console.log("Audio still not loaded after 3 seconds, readyState:", audioRef.current.readyState);
-              }
-            }, 3000);
+            audioRef.current.load(); // Force reload with new source
+            audioRef.current.play().catch((error) => {
+              console.error("Error playing audio:", error);
+            });
+            setPlayStatus(true);
           }
         }, 100);
       } else {
