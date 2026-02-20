@@ -33,7 +33,6 @@ const DisplayAlbum = () => {
     );
   }
 
-
   if (!albumData) {
     return (
       <>
@@ -76,31 +75,47 @@ const DisplayAlbum = () => {
                 fill="currentColor"
               />
             </svg>
-            <b className="pl-3">{albumData.owner} </b> · {albumSongs.length} songs · 2026 · 59
-            min 49 sec
+            <b className="pl-3">{albumData.owner} </b> · {albumSongs.length}{" "}
+            songs · 2026 · 59 min 49 sec
           </p>
         </div>
       </div>
-      <div className=" grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
-        <p>
-          <b className="mr-4 w-4 text-right inline-block">#</b>
-          <span className="ml-1">Title</span>
-        </p>
-        <p>Album</p>
-        <p className="hidden sm:block">Date Added</p>
-      </div>
-      <hr />
-      {albumSongs.map((item, index) => (
-        <div onClick={() => playWithId(item.id)} key={item.id} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer">
-          <p className="text-white">
-            <b className="mr-4 text-[#a7a7a7] w-4 text-right inline-block">{index + 1}</b>
-            <span className="ml-1">{item.title}</span>
-          </p>
-          <p>{albumData.title}</p>
-          <p className="hidden sm:block">5 days ago</p>
-          <p className="text-center">{item.duration || "not found"}</p>
+      <div className="w-full mt-10 mb-4">
+        <div className="grid grid-cols-[auto_1fr_1fr_auto] gap-4 px-4 py-2 text-[#a7a7a7] border-b border-[#ffffff1a]">
+          <div className="flex items-center justify-center w-8">
+            <span>#</span>
+          </div>
+          <div className="flex items-center">
+            <span>Title</span>
+          </div>
+          <div className="flex items-center">
+            <span>Album</span>
+          </div>
+          <div className="flex items-center justify-center w-16">
+            <span>Duration</span>
+          </div>
         </div>
-      ))}
+        {albumSongs.map((item, index) => (
+          <div
+            onClick={() => playWithId(item.id)}
+            key={item.id}
+            className="grid grid-cols-[auto_1fr_1fr_auto] gap-4 px-4 py-3 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer transition-colors duration-200"
+          >
+            <div className="flex items-center justify-center w-8 text-white">
+              <span className="text-sm">{index + 1}</span>
+            </div>
+            <div className="flex items-center text-white">
+              <span className="truncate">{item.title}</span>
+            </div>
+            <div className="flex items-center">
+              <span className="truncate">{albumData.title}</span>
+            </div>
+            <div className="flex items-center justify-center w-16 text-sm">
+              <span>{item.duration || "--:--"}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

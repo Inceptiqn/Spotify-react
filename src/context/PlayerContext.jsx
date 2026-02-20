@@ -14,6 +14,7 @@ const PlayerContextProvider = (props) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [time, setTime] = useState({
     currentTime: {
       second: 0,
@@ -218,6 +219,8 @@ const PlayerContextProvider = (props) => {
     next,
     isLoading,
     error,
+    showPremiumModal,
+    setShowPremiumModal,
   };
 
   return (

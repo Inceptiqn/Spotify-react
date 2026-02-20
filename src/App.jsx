@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Sidebar from "./components/Sidebar";
 import Player from "./components/Player";
 import Display from "./components/Display";
+import PremiumModal from "./components/PremiumModal";
 import { PlayerContext } from "./context/PlayerContext";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Display/>
       </div>
       <Player/>
+      <PremiumModal/>
       <audio
         ref={audioRef}
         src={track?.file && track.file !== "" ? track.file : undefined}
