@@ -17,6 +17,12 @@ Un clone full-stack dell'interfaccia Spotify, realizzato con **React 19**, **Vit
 
 Spotify React è una riproduzione fedele dell'interfaccia web di Spotify, collegata a un backend reale. Gli utenti possono sfogliare album, ascoltare brani e gestire la propria libreria — il tutto servito tramite un'istanza PocketBase in self-hosting.
 
+## Screenshot
+
+| Home | Pagina Album |
+|:---:|:---:|
+| ![Home](screenshot1.png) | ![Pagina Album](screenshot2.png) |
+
 ## Stack Tecnologico
 
 | Livello | Tecnologia |
